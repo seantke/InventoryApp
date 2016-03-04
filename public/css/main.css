@@ -1,0 +1,28 @@
+/*nav{
+  padding-left:250px;
+}*/
+#logo{
+  font-size:2em;
+}
+#search{
+  height:40px;
+  line-height:40px;
+  font-size:1.5em;
+  max-width:100%;
+  margin:0;
+}
+#search-icon{
+  line-height:40px;
+  font-size:2em;
+}
+#nav-mobile{
+  margin-top:64px;
+}
+main{
+  padding-left:250px;
+}
+@media(max-width: 992px){
+  nav, main{
+    padding-left:10px;
+  }
+}

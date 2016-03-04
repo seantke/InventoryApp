@@ -1,0 +1,8 @@
+.row
+  .col.s12.m6.l4(ng-repeat="data in datas | filter:navSearch")
+    .card.darken-1
+      .card-content
+        .card-title {{data.title}}
+        p.truncate {{data.desc}}
+      .card-action
+        a(ui-sref="single({singleId:$index})") Single

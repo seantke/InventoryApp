@@ -1,0 +1,1 @@
+<div class="row"><div ng-repeat="data in datas | filter:navSearch" class="col s12 m6 l4"><div class="card darken-1"><div class="card-content"><div class="card-title">{{data.title}}</div><p class="truncate">{{data.desc}}</p></div><div class="card-action"><a ui-sref="single({singleId:$index})">Single</a></div></div></div></div>

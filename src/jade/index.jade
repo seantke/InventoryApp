@@ -1,0 +1,49 @@
+html(ng-app="InventoryApp")
+  head
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="public/css/main.css")
+  body
+    header
+      .navbar-fixed
+        nav.indigo
+          a(href="#" data-activates="nav-mobile" class="button-collapse")
+            i(class="large mdi-navigation-menu")
+          .row.valign-wrapper
+            .col.s4.valign
+              span#logo.left Inventory App
+            .col.s6
+            .col.s2.valign
+              a#loginBtn.btn.modal-trigger.right(href="#modal1") Login
+          
+        ul#nav-mobile.side-nav.fixed
+          li.search
+            form
+              .input-field
+                i#search-icon.material-icons.prefix search
+                input#search(type="search" required="" ng-model="navSearch")
+          li
+            a(ui-sref="Home") Home
+          li
+            a(ui-sref="List") List
+          li
+            a(href="#") Two
+          li
+            a(href="#") Three
+    main
+      div(ui-view="main")
+      div(ui-view="other")
+      #modal1.modal
+        .modal-content
+          h4 Modal header
+          p A bunch of text
+        .modal-footer
+          a.modal-action.modal-close.btn-flat(href="#") OK
+    footer
+    
+    script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="node_modules/angular/angular.js")
+    script(src="node_modules/angular-ui-router/release/angular-ui-router.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+    script(src="public/index.js")
+    script(src="public/app.js")
