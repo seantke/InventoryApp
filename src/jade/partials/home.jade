@@ -1,1 +1,30 @@
-h1 Working!
+.row
+  .col.s12.l6
+    h4 Welcome to the Inventory App!
+  form.col.s12.l6.indigo.white-text
+    .row
+      .col.s12
+        h3 Register Here
+      .input-field.col.s6
+        i.material-icons.prefix face
+        input#fname-register.validate(type="text")
+        label(for="fname-register") First Name
+      .input-field.col.s6
+        i.material-icons.prefix face
+        input#lname-register.validate(type="text")
+        label(for="lname-register") Last Name
+      .input-field.col.s12
+        i.material-icons.prefix account_circle
+        input#email-register.validate(type="email")
+        label(for="email-register") Email
+      .input-field.col.s12
+        i.material-icons.prefix lock
+        input#pass-register.validate(type="password")
+        label(for="pass-register") Password
+      .input-field.col.s12
+        i.material-icons.prefix loop
+        input#repeat-pass-register.validate(type="password")
+        label(for="repeat-pass-register") Repeat Password
+      .col.s12
+        button.btn.right(type="submit") Register
+          i.material-icons.right thumb_up

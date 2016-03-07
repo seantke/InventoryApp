@@ -1,8 +1,31 @@
 .row
-  .col.s12.m6.l4(ng-repeat="data in datas | filter:navSearch")
-    .card.darken-1
-      .card-content
-        .card-title {{data.title}}
-        p.truncate {{data.desc}}
-      .card-action
-        a(ui-sref="single({singleId:$index})") Single
+  form.amber.lighten-1.col.s6.teal-text.text-darken-2(ng-submit="newItem()")
+    .row
+      .input-field.col.s12
+        h4 New Item
+      .input-field.col.s12
+        i.material-icons.prefix book
+        input.validate(ng-model="item.title" name="itemTitle" type="text" required)
+        label.active(for="itemTitle") Item Title
+      .input-field.col.s12
+        i.material-icons.prefix description
+        input.validate(ng-model="item.desc" name="itemDesc" type="text" required)
+        label.active(for="itemDesc") Item Description
+      .col.s12.margin-bottom
+        button.btn.right(type="submit") Submit
+.row
+  .col.s12
+    h4 Item List - click to view
+    .col.s12.m6.l4(ng-repeat="data in items | filter:navSearch")
+      .card.darken-1.inv-click
+        a.dropdown-button.option-link.right(data-activates="item-card-dropdown")
+          i.material-icons.prefix more_vert
+        .card-content(ui-sref="single({singleId:$index})")
+          .card-title {{data.title}}
+          p.truncate {{data.desc}} 
+
+      ul#item-card-dropdown.dropdown-content(ng-class="$index")
+        li
+          a Edit(ui-sref="singleEdit({singleId:$index})")
+        li
+          a Delete

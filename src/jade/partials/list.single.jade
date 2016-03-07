@@ -3,6 +3,8 @@
     .card.darken-1
       .card-content
         .card-title 
-          a(ui-sref="List") &larr;
-          {{datas[singleId].title}}
-        p.flow-text {{datas[singleId].desc}}
+            a(ui-sref="List")
+              i.material-icons keyboard_arrow_left
+              span Back
+          h2 {{items[singleId].title}}
+        p.flow-text {{items[singleId].desc}}

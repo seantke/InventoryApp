@@ -5,9 +5,10 @@ html(ng-app="InventoryApp")
     link(rel="stylesheet" href="public/css/main.css")
   body
     header
+    a
       .navbar-fixed
         nav.indigo
-          a(href="#" data-activates="nav-mobile" class="button-collapse")
+          a.button-collapse(href="#" data-activates="nav-mobile")
             i(class="large mdi-navigation-menu")
           .row.valign-wrapper
             .col.s4.valign
@@ -33,12 +34,6 @@ html(ng-app="InventoryApp")
     main
       div(ui-view="main")
       div(ui-view="other")
-      #modal1.modal
-        .modal-content
-          h4 Modal header
-          p A bunch of text
-        .modal-footer
-          a.modal-action.modal-close.btn-flat(href="#") OK
     footer
     
     script(src="https://code.jquery.com/jquery-2.1.1.min.js")
@@ -47,3 +42,5 @@ html(ng-app="InventoryApp")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
     script(src="public/index.js")
     script(src="public/app.js")
+    script(src="public/test-controller.js")
+    script(src="public/user-controller.js")

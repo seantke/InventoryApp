@@ -1,0 +1,18 @@
+#modal1.modal
+  .modal-content
+    .row
+      .col.s12 
+        h3 Please Log In!
+      form.col.s12
+        .row
+          .input-field.col.s12.l6
+            i.material-icons.prefix account_circle
+            input#email-login.validate(type="email")
+            label(for="email-login") Email
+          .input-field.col.s12.l6
+            i.material-icons.prefix lock
+            input#pass-login.validate(type="password")
+            label(for="pass-login") Password          
+  .modal-footer
+    button.btn(type="submit") Log In
+      i.material-icons.right thumb_up
