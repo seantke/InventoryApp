@@ -9,5 +9,9 @@
       $('.button-collapse').sideNav('hide');
     }
   });
-  $(".dropdown-button").dropdown();
+  $(document).on("click",".dropdown-setting-btn", function(e){
+    //console.log($(this));
+    $(this).toggleClass("fullscreen-click");
+    $(this).children(".dropdown-content").toggleClass("make-visible");
+  });
 }());

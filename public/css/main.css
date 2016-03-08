@@ -34,6 +34,25 @@ main{
 .option-link{
   padding:6px;
 }
+.dropdown-setting-btn{
+  position:relative;
+}
+.dropdown-content{
+  right:0;
+}
+.make-visible{
+  display:block;
+  opacity:1;
+}
+.fullscreen-click:after{
+  content:'';
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  position:fixed;
+  z-index:100;
+}
 /*.margin-bottom{
   margin-bottom:1rem;
 }*/

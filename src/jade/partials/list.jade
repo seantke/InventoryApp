@@ -14,18 +14,18 @@
       .col.s12.margin-bottom
         button.btn.right(type="submit") Submit
 .row
-  .col.s12
+  .col.s12.item-cards
     h4 Item List - click to view
     .col.s12.m6.l4(ng-repeat="data in items | filter:navSearch")
       .card.darken-1.inv-click
-        a.dropdown-button.option-link.right(data-activates="item-card-dropdown")
+        .dropdown-setting-btn.option-link.right()
           i.material-icons.prefix more_vert
+          ul.dropdown-content
+            li
+              a(ui-sref="singleEdit({singleId:$index})") Edit
+            li
+              a Delete
         .card-content(ui-sref="single({singleId:$index})")
           .card-title {{data.title}}
           p.truncate {{data.desc}} 
-
-      ul#item-card-dropdown.dropdown-content(ng-class="$index")
-        li
-          a Edit(ui-sref="singleEdit({singleId:$index})")
-        li
-          a Delete
+          p{{data._id}}

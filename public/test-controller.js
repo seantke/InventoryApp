@@ -11,7 +11,8 @@
           for (d in data) {
             $scope.items.push({
               title: data[d].title,
-              desc: data[d].desc
+              desc: data[d].desc,
+              _id:data[d]._id
             });
           }
         }).error(function(error) {

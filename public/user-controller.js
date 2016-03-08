@@ -1,5 +1,5 @@
 angular.module("InventoryApp")
-.controller("UserController", function($scope, $stateParams){
+.controller("UserController", function($scope, $stateParams, $http, $state){
   var users = [
     {
       email:'sean@test.com',
