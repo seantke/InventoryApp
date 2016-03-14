@@ -8,7 +8,8 @@ angular.module("InventoryApp", ["ui.router"])
         views:{
           'main':{
             templateUrl:'public/views/partials/list.html',
-            controller:'TestController'
+            controller:'TestController',
+            controllerAs:'TC'
           }
         }
       }).state('single',{
@@ -16,7 +17,8 @@ angular.module("InventoryApp", ["ui.router"])
         views:{
           'main':{
             templateUrl:'public/views/partials/list.single.html',
-            controller:'TestController'
+            controller:'TestController',
+            controllerAs:'TC'
           }
         }
       }).state('singleEdit',{
@@ -24,7 +26,8 @@ angular.module("InventoryApp", ["ui.router"])
         views:{
           'main':{
             templateUrl:'public/views/partials/list.single.edit.html',
-            controller:'TestController'
+            controller:'TestController',
+            controllerAs:'TC'
           }
         }
       }).state('Home',{

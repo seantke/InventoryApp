@@ -1,22 +1,22 @@
 .row
-  form.amber.lighten-1.col.s6.teal-text.text-darken-2(ng-submit="newItem()")
+  form.amber.lighten-1.col.s6.teal-text.text-darken-2(ng-submit="TC.newItem()")
     .row
       .input-field.col.s12
         h4 New Item
       .input-field.col.s12
         i.material-icons.prefix book
-        input.validate(ng-model="item.title" name="itemTitle" type="text" required)
+        input.validate(ng-model="TC.item.title" name="itemTitle" type="text" required)
         label.active(for="itemTitle") Item Title
       .input-field.col.s12
         i.material-icons.prefix description
-        input.validate(ng-model="item.desc" name="itemDesc" type="text" required)
+        input.validate(ng-model="TC.item.desc" name="itemDesc" type="text" required)
         label.active(for="itemDesc") Item Description
       .col.s12.margin-bottom
         button.btn.right(type="submit") Submit
 .row
   .col.s12.item-cards
     h4 Item List - click to view
-    .col.s12.m6.l4(ng-repeat="data in items | filter:navSearch")
+    .col.s12.m6.l4(ng-repeat="data in TC.items | filter:navSearch")
       .card.darken-1.inv-click
         .dropdown-setting-btn.option-link.right()
           i.material-icons.prefix more_vert
