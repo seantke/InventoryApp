@@ -53,6 +53,15 @@ main{
   position:fixed;
   z-index:100;
 }
+.fade-out{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.status-area{
+  position:absolute;
+  background-color:#EFEFEF;
+  box-shadow: 1px 1px 1px 1px black;
+}
 /*.margin-bottom{
   margin-bottom:1rem;
 }*/

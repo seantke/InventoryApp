@@ -1,0 +1,47 @@
+form.amber.lighten-1.col.s12.l6.right.teal-text.text-darken-2(ng-submit="TC.newItem()")
+  .row
+    .input-field.col.s12
+      h4 New Item
+    .input-field.col.s12
+      i.material-icons.prefix book
+      input.validate(ng-model="TC.item.model" name="itemModel" type="text" required)
+      label.active(for="itemModel") Model
+    .input-field.col.s12
+      i.material-icons.prefix contacts
+      input.validate(ng-model="TC.item.manufacturer" name="itemManufacturer" type="text" required)
+      label.active(for="itemManufacturer") Manufacturer
+    .input-field.col.s12
+      i.material-icons.prefix description
+      input.validate(ng-model="TC.item.description" name="itemDesc" type="text" required)
+      label.active(for="itemDesc") Description
+    .input-field.col.s12
+      i.material-icons.prefix dialpad
+      input.validate(ng-model="TC.item.quantity" name="itemQuantity" type="number" required)
+      label.active(for="itemQuantity") Quantity
+    .col.s12.margin-bottom
+      button.btn.right(type="submit") Submit
+.col.s12.l6
+  h4 Item List - click to view
+  .col.s12(ng-repeat="data in TC.items | filter:navSearch | orderBy:'-date'")
+    .card.darken-1.inv-click
+      .col.s12
+        .dropdown-setting-btn.option-link.right()
+          i.material-icons.prefix more_vert
+          ul.dropdown-content
+            li
+              a(ui-sref="^.edit({singleId:data._id})") Edit
+            li
+              a(ng-click="TC.deleteItem(data)") Delete
+      .card-content(ui-sref="^.single({singleId:data._id})")
+        .card-title
+          .col.s6 Model: {{data.model}}
+          .col.s6 {{data.date | date:'medium'}}
+        .row
+          .col.s6
+            p Manufacturer:
+            p Quantity:
+            p Description:
+          .col.s6
+            p {{data.manufacturer}}
+            p {{data.quantity}}
+            p {{data.description}}

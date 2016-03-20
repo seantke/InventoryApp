@@ -1,10 +1,20 @@
 .row
-  .col.s12
+  .col.s12.l8.offset-l2
     .card.darken-1
       .card-content
         .card-title 
-            a(ui-sref="List")
-              i.material-icons keyboard_arrow_left
-              span Back
-          h2 {{TC.items[TC.singleId].title}}
-        p.flow-text {{TC.items[TC.singleId].desc}}
+          a(ui-sref="^.all")
+            i.material-icons keyboard_arrow_left
+            span Back
+          h3 {{TC.singleItem.model}}
+        .row
+          .col.s6
+            p Date Created:
+            p Manufacturer:
+            p Quantity:
+            p Description:
+          .col.s6
+            p {{TC.singleItem.date | date:'medium'}}
+            p {{TC.singleItem.manufacturer}}
+            p {{TC.singleItem.quantity}}
+            p {{TC.singleItem.description}}

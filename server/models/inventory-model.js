@@ -2,8 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var invSchema = new Schema({
-  title: String,
-  desc: String
+  model: String,
+  manufacturer: String,
+  quantity: Number,
+  description: String,
+  modifiedBy: String,
+  modifiedDate: Date,
+  date: Date
 });
 
 var Inventory = mongoose.model('inventory', invSchema, 'inventory');

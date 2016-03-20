@@ -4,7 +4,7 @@
   "description": "",
   "main": " ",
   "scripts": {
-    "test": " "
+    "start": "node server/server"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
     "express": "~4.13.4",
     "jsonwebtoken": "~5.7.0",
     "mongoose": "~4.4.5",
-    "jade": "~1.11.0"
+    "jade": "~1.11.0",
+    "lodash": "~4.6.1"
   },
   "devDependencies": {
     "gulp-jade": "~1.1.0",

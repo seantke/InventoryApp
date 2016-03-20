@@ -26,7 +26,7 @@ html(ng-app="InventoryApp")
           li
             a(ui-sref="Home") Home
           li
-            a(ui-sref="List") List
+            a(ui-sref="List.all") List
           li
             a(href="#") Two
           li
@@ -37,10 +37,16 @@ html(ng-app="InventoryApp")
     footer
     
     script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="node_modules/lodash/lodash.min.js")
     script(src="node_modules/angular/angular.js")
     script(src="node_modules/angular-ui-router/release/angular-ui-router.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
     script(src="public/index.js")
     script(src="public/app.js")
-    script(src="public/test-controller.js")
+    
+    //Factories, Services, Providers
+    script(src="public/inventory-factory.js")
+    
+    //controllers
+    script(src="public/inventory-controller.js")
     script(src="public/user-controller.js")
