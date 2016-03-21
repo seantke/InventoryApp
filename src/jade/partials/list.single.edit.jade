@@ -6,24 +6,41 @@
           a(ui-sref="^.all")
             i.material-icons keyboard_arrow_left
             span Back
-          h3 Edit {{TC.items[TC.singleId]._id}}
+          h3 Edit
         form(ng-submit="TC.editItem(TC.singleId)")
           .row
             .input-field.col.s12
               i.material-icons.prefix book
-              input.validate(ng-model="TC.items[TC.singleId].model" name="itemModel" type="text" required)
+              input.validate(ng-model="TC.singleItem.model" name="itemModel" type="text" required)
               label.active(for="itemModel") Model
             .input-field.col.s12
               i.material-icons.prefix contacts
-              input.validate(ng-model="TC.items[TC.singleId].manufacturer" name="itemManufacturer" type="text" required)
+              input.validate(ng-model="TC.singleItem.manufacturer" name="itemManufacturer" type="text" required)
               label.active(for="itemManufacturer") Manufacturer
             .input-field.col.s12
               i.material-icons.prefix description
-              input.validate(ng-model="TC.items[TC.singleId].description" name="itemDesc" type="text" required)
+              input.validate(ng-model="TC.singleItem.description" name="itemDesc" type="text" required)
               label.active(for="itemDesc") Description
             .input-field.col.s12
               i.material-icons.prefix dialpad
-              input.validate(ng-model="TC.items[TC.singleId].quantity" name="itemQuantity" type="number" required)
+              input.validate(ng-model="TC.singleItem.quantity" name="itemQuantity" type="number" required)
               label.active(for="itemQuantity") Quantity
+          .row
+            .row.z-depth-1(ng-repeat="instance in TC.singleItem.instances track by $index")
+              .input-field.col.s5
+                i.material-icons.prefix vpn_key
+                input.validate(ng-model="instance.asset" name="instanceAsset" type="text" required)
+                label.active(for="instanceAsset") Asset
+              .input-field.col.s5
+                i.material-icons.prefix label
+                input.validate(ng-model="instance.serial" name="instanceSerial" type="text" required)
+                label.active(for="instanceSerial") Serial
+              .col.s2
+                a.btn-floating.red.right(type="button" ng-click="TC.removeInstance($index)")
+                  i.material-icons clear
+            .row
+              .col.s12.margin-bottom
+                button.btn.right(type="button" ng-click="TC.addInstance()") Add Instance
+          .row
             .col.s12.margin-bottom
               button.btn.right(type="submit") Submit

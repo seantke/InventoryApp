@@ -11,10 +11,9 @@ html(ng-app="InventoryApp")
           a.button-collapse(href="#" data-activates="nav-mobile")
             i(class="large mdi-navigation-menu")
           .row.valign-wrapper
-            .col.s4.valign
+            .col.s6.valign
               span#logo.left Inventory App
-            .col.s6
-            .col.s2.valign
+            .col.s6.valign.right
               a#loginBtn.btn.modal-trigger.right(href="#modal1") Login
           
         ul#nav-mobile.side-nav.fixed
@@ -46,6 +45,7 @@ html(ng-app="InventoryApp")
     
     //Factories, Services, Providers
     script(src="public/inventory-factory.js")
+    script(src="public/users-factory.js")
     
     //controllers
     script(src="public/inventory-controller.js")

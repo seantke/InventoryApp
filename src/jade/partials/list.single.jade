@@ -6,15 +6,34 @@
           a(ui-sref="^.all")
             i.material-icons keyboard_arrow_left
             span Back
-          h3 {{TC.singleItem.model}}
+        .row
+          .col.s12
+            h4 {{TC.singleItem.model}}
         .row
           .col.s6
-            p Date Created:
-            p Manufacturer:
-            p Quantity:
-            p Description:
+            h5 Date Created:
+            h5 Manufacturer:
+            h5 Quantity:
+            h5 Description:
           .col.s6
-            p {{TC.singleItem.date | date:'medium'}}
-            p {{TC.singleItem.manufacturer}}
-            p {{TC.singleItem.quantity}}
-            p {{TC.singleItem.description}}
+            h5 {{TC.singleItem.date | date:'medium'}}
+            h5 {{TC.singleItem.manufacturer}}
+            h5 {{TC.singleItem.quantity}}
+            h5 {{TC.singleItem.description}}
+        .row
+          .col.s12
+            h4 Instances
+        .row.z-depth-2(ng-repeat="instance in TC.singleItem.instances track by $index")
+          .col.s4
+            h5 Asset: {{instance.asset}}
+          .col.s6
+            h5 Serial: {{instance.serial}}
+      .card-action
+        .row
+          .col.s12.align-center
+            button.btn.right.red(ng-click="TC.deleteItem(TC.singleItem)")
+              i.material-icons remove_circle
+              span  Delete
+            button.btn.right.orange(ui-sref="^.edit({singleId:TC.singleItem._id})")
+              i.material-icons mode_edit
+              span  Edit

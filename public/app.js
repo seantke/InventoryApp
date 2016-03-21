@@ -14,7 +14,8 @@ angular.module("InventoryApp", ["ui.router"])
           },
           'other': {
             templateUrl: 'public/views/partials/login.html',
-            controller: 'UserController'
+            controller: 'UserController',
+            controllerAs:"UC"
           }
         }
       }).state('List.all', {
@@ -37,11 +38,13 @@ angular.module("InventoryApp", ["ui.router"])
         views: {
           'main': {
             templateUrl: 'public/views/partials/home.html',
-            controller: "UserController"
+            controller: "UserController",
+            controllerAs:"UC"
           },
           'other': {
             templateUrl: 'public/views/partials/login.html',
-            controller: 'UserController'
+            controller: 'UserController',
+            controllerAs:"UC"
           }
         }
       });

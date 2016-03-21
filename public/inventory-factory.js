@@ -7,6 +7,9 @@ angular.module("InventoryApp")
       getInventory: function() { //read
         return $http.get('/inventory/get');
       },
+      getSingleInventory: function(id) { //read
+        return $http.get('/inventory/get/'+id);
+      },
       updateInventory: function(item) { //update
         return $http.post('/inventory/edit', item);
       },

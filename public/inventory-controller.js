@@ -1,12 +1,11 @@
 (function() {
   angular.module("InventoryApp")
-    .controller("InventoryController", function(_, $rootScope, $state, $timeout, $stateParams, InventoryFactory) {
+    .controller("InventoryController", function($filter, $rootScope, $state, $timeout, $stateParams, InventoryFactory) {
       //VARS
       var TC = this;
-      TC.item = {};
+      TC.newItem = {};
       TC.items = [];
-      TC.singleItem = $stateParams.singleId;
-
+      TC.singleId = $stateParams.singleId;
       //HTTP REQUESTS
       TC.getItems = function() {
         InventoryFactory.getInventory().success(function(data) {
@@ -16,15 +15,19 @@
           console.error(error);
         });
       };
-      TC.getSingleItem = function(id){
 
+      TC.getSingleItem = function(id) {
+        InventoryFactory.getSingleInventory(id).success(function(data) {
+          TC.singleItem = data;
+        });
       };
+
       TC.newItem = function() {
         InventoryFactory.newInventory({
-            model: TC.item.model,
-            description: TC.item.description,
-            manufacturer: TC.item.manufacturer,
-            quantity: TC.item.quantity,
+            model: TC.newItem.model,
+            description: TC.newItem.description,
+            manufacturer: TC.newItem.manufacturer,
+            quantity: TC.newItem.quantity,
             modifiedBy: "Sean",
             modifiedDate: Date.now(),
             date: Date.now()
@@ -41,10 +44,28 @@
             console.error(error);
           });
       };
-      TC.editItem = function(index){
-        var updatedItem = TC.items[index];
-        InventoryFactory.updateInventory(updatedItem).success(function(data){
-          console.log(data);
+
+      TC.addInstance = function(){
+        TC.singleItem.instances.push({});
+        statusUpdate("Added new Instance");
+      };
+      TC.removeInstance = function(i){
+        var c = confirm("Are you sure you want to delete this instance?");
+        if (c){
+          statusUpdate("Removed instance with asset: "+TC.singleItem.instances[i].asset);
+          TC.singleItem.instances.splice(i,1);
+        }
+        else{
+          statusUpdate("Keeping instance");
+        }
+      };
+
+      TC.editItem = function(index) {
+        console.log(TC.singleItem);
+        InventoryFactory.updateInventory(TC.singleItem).success(function(data) {
+          $state.go("List.all", {}, {
+            reload: true
+          });
         });
       };
       TC.deleteItem = function(item) {
@@ -60,14 +81,14 @@
         }
       };
       //INITIALIZERS
-      TC.getItems();
+      if (TC.singleId) {
+        TC.getSingleItem(TC.singleId);
+      } else {
+        TC.getItems();
+      }
 
       var statusUpdate = function(msg) {
         Materialize.toast(msg, 2000);
-        // $rootScope.statusMsg.push(msg);
-        // $timeout(function() {
-        //   $rootScope.statusMsg.shift();
-        // }, 4000);
       };
 
     });

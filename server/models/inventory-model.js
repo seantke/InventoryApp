@@ -6,6 +6,12 @@ var invSchema = new Schema({
   manufacturer: String,
   quantity: Number,
   description: String,
+  instances:[
+    {
+      asset:String,
+      serial:String
+    }
+  ],
   modifiedBy: String,
   modifiedDate: Date,
   date: Date

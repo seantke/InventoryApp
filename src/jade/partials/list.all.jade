@@ -4,19 +4,19 @@ form.amber.lighten-1.col.s12.l6.right.teal-text.text-darken-2(ng-submit="TC.newI
       h4 New Item
     .input-field.col.s12
       i.material-icons.prefix book
-      input.validate(ng-model="TC.item.model" name="itemModel" type="text" required)
+      input.validate(ng-model="TC.newItem.model" name="itemModel" type="text" required)
       label.active(for="itemModel") Model
     .input-field.col.s12
       i.material-icons.prefix contacts
-      input.validate(ng-model="TC.item.manufacturer" name="itemManufacturer" type="text" required)
+      input.validate(ng-model="TC.newItem.manufacturer" name="itemManufacturer" type="text" required)
       label.active(for="itemManufacturer") Manufacturer
     .input-field.col.s12
       i.material-icons.prefix description
-      input.validate(ng-model="TC.item.description" name="itemDesc" type="text" required)
+      input.validate(ng-model="TC.newItem.description" name="itemDesc" type="text" required)
       label.active(for="itemDesc") Description
     .input-field.col.s12
       i.material-icons.prefix dialpad
-      input.validate(ng-model="TC.item.quantity" name="itemQuantity" type="number" required)
+      input.validate(ng-model="TC.newItem.quantity" name="itemQuantity" type="number" required)
       label.active(for="itemQuantity") Quantity
     .col.s12.margin-bottom
       button.btn.right(type="submit") Submit
